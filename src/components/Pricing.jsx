@@ -1,3 +1,3 @@
 export function Pricing() {
-  return <></>;
+  return <>Pricing component </>;
 }
