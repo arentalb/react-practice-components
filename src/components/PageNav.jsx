@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import styles from "./AppNav.module.css";
 
 export function PageNav() {
   return (
-    <nav>
+    <nav className={styles.nav}>
       <ul>
         <li>
           <Link to={""}>home</Link>
