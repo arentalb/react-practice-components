@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./AppNav.module.css";
 
 export function PageNav() {
@@ -6,17 +6,18 @@ export function PageNav() {
     <nav className={styles.nav}>
       <ul>
         <li>
-          <Link to={""}>home</Link>
+          <NavLink to={""}>home</NavLink>
         </li>
         <li>
-          <Link to={"pricing"}>pricing</Link>
+          <NavLink to={"pricing"}>pricing</NavLink>
         </li>
         <li>
-          <Link to={"products"}>product</Link>
+          <NavLink to={"products"}>product</NavLink>
         </li>
         {/*<li>*/}
-        {/*  <NavLink to={"products"}>product</NavLink>*/}
+        {/*  <Link to={"products"}>product</Link>*/}
         {/*</li>*/}
+        {/*it wont get active class to the selected or active url we are in it */}
       </ul>
     </nav>
   );

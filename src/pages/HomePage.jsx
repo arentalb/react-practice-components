@@ -1,10 +1,11 @@
 import { PageNav } from "../components/PageNav.jsx";
+import { Home } from "../components/Home.jsx";
 
-export function Pricing() {
+export function HomePage() {
   return (
     <div>
       <PageNav />
-      <h1>Pricing</h1>
+      <Home />
     </div>
   );
 }

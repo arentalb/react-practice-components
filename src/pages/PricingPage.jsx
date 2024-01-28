@@ -1,10 +1,11 @@
 import { PageNav } from "../components/PageNav.jsx";
+import { Pricing } from "../components/Pricing.jsx";
 
-export function NotFound() {
+export function PricingPage() {
   return (
     <div>
       <PageNav />
-      <h1>NotFound</h1>
+      <Pricing />
     </div>
   );
 }
