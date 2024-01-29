@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./styelModules/tasks.module.css";
 import { useNavigate, useParams } from "react-router-dom";
+import { useTask } from "../../contexts/TaskContext.jsx";
 
 function computeStatusColor(status) {
   console.log(status);
@@ -18,23 +19,17 @@ function computeStatusColor(status) {
 
 export function TaskView() {
   const data = useParams();
-  const { id } = data;
-  const [task, setTask] = useState({});
-
-  useEffect(function () {
-    async function fetchTasks() {
-      try {
-        const res = await fetch(`http://localhost:3001/tasks/${id}`);
-        const data = await res.json();
-        setTask(data);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
-    fetchTasks();
-  }, []);
   const navigate = useNavigate();
+
+  const { id } = data;
+  const { getTask, task } = useTask();
+
+  useEffect(
+    function () {
+      getTask(id);
+    },
+    [id],
+  );
 
   const handleButtonClick = async (taskId) => {
     try {
@@ -47,7 +42,6 @@ export function TaskView() {
 
       if (response.ok) {
         console.log(`Task with ID ${taskId} deleted successfully`);
-        navigate("/tasks");
       } else {
         console.error("Failed to delete task");
       }

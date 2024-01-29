@@ -1,22 +1,9 @@
-import { useEffect, useState } from "react";
 import styles from "./styelModules/tasks.module.css";
 import { useNavigate } from "react-router-dom";
+import { useTask } from "../../contexts/TaskContext.jsx";
+
 export function Tasks() {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(function () {
-    async function fetchTasks() {
-      try {
-        const res = await fetch("http://localhost:3001/tasks");
-        const data = await res.json();
-        setTasks(data);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
-    fetchTasks();
-  }, []);
+  const { tasks } = useTask();
 
   return (
     <div className={styles.taskBox}>
