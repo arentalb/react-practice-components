@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./styelModules/tasks.module.css";
+import { useNavigate } from "react-router-dom";
 export function Tasks() {
   const [tasks, setTasks] = useState([]);
 
@@ -40,9 +41,17 @@ function computeStatusColor(status) {
 }
 
 function SingleTask({ task }) {
+  const navigate = useNavigate();
+
+  function handleButtonClick() {
+    navigate(`/task/${task.id}`);
+  }
+
   return (
-    <div className={styles.task}>
-      {/*<p>{task.id}</p>*/}
+    <button
+      onClick={() => handleButtonClick(task.id)}
+      className={`${styles.task} ${styles.button}`}
+    >
       <h2 className={styles.title}>{task.title}</h2>
       <div className={styles.statusBox}>
         <p className={styles.description}>{task.description}</p>
@@ -50,6 +59,6 @@ function SingleTask({ task }) {
           className={`${styles.status} ${computeStatusColor(task.status)}`}
         ></div>
       </div>
-    </div>
+    </button>
   );
 }

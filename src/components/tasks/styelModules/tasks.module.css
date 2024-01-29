@@ -8,6 +8,7 @@
     background-color: #eeebeb;
     padding: 20px 20px ;
     border-radius: 10px;
+    text-align: start;
 }
 
 .statusBox{
@@ -45,4 +46,15 @@
 .completed{
     background-color: #26465e;
 
+}
+.button{
+    border: 0;
+}
+
+.deleteButton{
+    background-color: #5cbee8;
+    padding: 5px 10px ;
+    border: 0;
+    border-radius: 5px ;
+    color: #000000;
 }
