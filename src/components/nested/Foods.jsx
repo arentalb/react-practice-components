@@ -7,6 +7,7 @@ export function Foods() {
       <Link to={`1`}>send food 1 </Link>
       <Link to={`2`}>send food 2 </Link>
       <Link to={`3`}>send food 3 </Link>
+      <Link to={`2?lat=${23}&lng=${54}`}>send query data </Link>
     </>
   );
 }
