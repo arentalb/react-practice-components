@@ -1,0 +1,8 @@
+json-server --watch src\data\db.json --port 3001
+
+
+GET http://localhost:3001/tasks: Get all tasks.
+GET http://localhost:3001/tasks/1: Get task with ID 1.
+POST http://localhost:3001/tasks: Add a new task.
+PUT http://localhost:3001/tasks/1: Update task with ID 1.
+DELETE http://localhost:3001/tasks/1: Delete task with ID 1.

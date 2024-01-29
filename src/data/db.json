@@ -1,0 +1,34 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Complete React Router Tutorial",
+      "description": "Learn and practice React Router concepts.",
+      "status": "incomplete"
+    },
+    {
+      "id": 2,
+      "title": "Build Task Manager App",
+      "description": "Create a small to medium-sized project using React Router.",
+      "status": "in progress"
+    },
+    {
+      "id": 3,
+      "title": "Study CSS Modules",
+      "description": "Understand and implement CSS Modules in the project.",
+      "status": "incomplete"
+    },
+    {
+      "id": 4,
+      "title": "Implement Task Editing Feature",
+      "description": "Allow users to edit existing tasks in the app.",
+      "status": "planned"
+    },
+    {
+      "id": 5,
+      "title": "Add Task Deletion Functionality",
+      "description": "Enable users to delete tasks from the task manager.",
+      "status": "completed"
+    }
+  ]
+}
