@@ -5,6 +5,7 @@ import { HomePage } from "./pages/HomePage.jsx";
 import { NotFoundPage } from "./pages/NotFoundPage.jsx";
 import { Drinks } from "./components/nested/Drinks.jsx";
 import { Foods } from "./components/nested/Foods.jsx";
+import { Detail } from "./Detail.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
           <Route path={"foods"} element={<Foods />} />
           <Route path={"drinks"} element={<Drinks />} />
+          <Route path={"foods/:id"} element={<Detail />} />
         </Route>
         <Route path={"/pricing"} element={<PricingPage />} />
         <Route path={"*"} element={<NotFoundPage />} />
