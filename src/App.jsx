@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ProductPage } from "./pages/ProductPage.jsx";
 import { PricingPage } from "./pages/PricingPage.jsx";
 import { HomePage } from "./pages/HomePage.jsx";
@@ -14,6 +14,8 @@ function App() {
         <Route path={""} element={<HomePage />} />
         <Route path={"/products"} element={<ProductPage />}>
           {/*<Route index element={<Drinks />} />*/}
+          <Route index element={<Navigate replace to={"foods"} />} />
+
           <Route path={"foods"} element={<Foods />} />
           <Route path={"drinks"} element={<Drinks />} />
         </Route>
