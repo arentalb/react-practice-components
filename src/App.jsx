@@ -1,5 +1,5 @@
 import "./styles/global.css";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, NavLink, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home.jsx";
 import { Tasks } from "./components/tasks/Tasks.jsx";
 import { TaskView } from "./components/tasks/TaskView.jsx";
@@ -20,7 +20,7 @@ function App() {
       <main>
         <Routes>
           <Route path={"/"} element={<Home />}>
-            <Route path={""} element={<Tasks />} />
+            <Route index element={<Navigate to={"tasks"} />} />
             <Route path={"tasks"} element={<Tasks />} />
             <Route path={"task/:id"} element={<TaskView />} />
             <Route path={"task/add"} element={<TaskAdd />} />

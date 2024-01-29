@@ -1,0 +1,48 @@
+.taskBox{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.task{
+    background-color: #eeebeb;
+    padding: 20px 20px ;
+    border-radius: 10px;
+}
+
+.statusBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.title{
+    margin-bottom: 20px;
+}
+
+.description{
+}
+
+.status{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.incomplete{
+
+    background-color: #ef4a4a;
+}
+.progress{
+    background-color: #0095d5;
+
+}
+.planned{
+    background-color: rgba(40, 180, 133, 0.8);
+
+}
+.completed{
+    background-color: #26465e;
+
+}
