@@ -1,0 +1,114 @@
+{
+  "countries": [
+    {
+      "id": 0,
+      "name": "united States",
+      "weather": {
+        "temperature": "25°C",
+        "conditions": "Clear sky",
+        "humidity": "50%",
+        "windSpeed": "10 km/h"
+      },
+      "flagImageUrl": "https://flagcdn.com/us.svg"
+    },
+    {
+      "id": 1,
+      "name": "china",
+      "weather": {
+        "temperature": "20°C",
+        "conditions": "Partly cloudy",
+        "humidity": "60%",
+        "windSpeed": "8 km/h"
+      },
+      "flagImageUrl": "https://flagcdn.com/cn.svg"
+    },
+    {
+      "id": 2,
+      "name": "india",
+      "weather": {
+        "temperature": "30°C",
+        "conditions": "Sunny",
+        "humidity": "40%",
+        "windSpeed": "12 km/h"
+      },
+      "flagImageUrl": "https://flagcdn.com/in.svg"
+    },
+    {
+      "id": 3,
+      "name": "brazil",
+      "weather": {
+        "temperature": "28°C",
+        "conditions": "Rainy",
+        "humidity": "70%",
+        "windSpeed": "15 km/h"
+      },
+      "flagImageUrl": "https://flagcdn.com/br.svg"
+    },
+    {
+      "id": 4,
+      "name": "united Kingdom",
+      "weather": {
+        "temperature": "15°C",
+        "conditions": "Overcast",
+        "humidity": "55%",
+        "windSpeed": "10 km/h"
+      },
+      "flagImageUrl": "https://flagcdn.com/uk.svg"
+    },
+    {
+      "id": 5,
+      "name": "france",
+      "weather": {
+        "temperature": "22°C",
+        "conditions": "Clear sky",
+        "humidity": "45%",
+        "windSpeed": "12 km/h"
+      },
+      "flagImageUrl": "https://flagcdn.com/fr.svg"
+    },
+    {
+      "id": 6,
+      "name": "germany",
+      "weather": {
+        "temperature": "18°C",
+        "conditions": "Partly cloudy",
+        "humidity": "50%",
+        "windSpeed": "8 km/h"
+      },
+      "flagImageUrl": "https://flagcdn.com/de.svg"
+    },
+    {
+      "id": 7,
+      "name": "japan",
+      "weather": {
+        "temperature": "23°C",
+        "conditions": "Sunny",
+        "humidity": "55%",
+        "windSpeed": "14 km/h"
+      },
+      "flagImageUrl": "https://flagcdn.com/jp.svg"
+    },
+    {
+      "id": 8,
+      "name": "russia",
+      "weather": {
+        "temperature": "-10°C",
+        "conditions": "Snowy",
+        "humidity": "80%",
+        "windSpeed": "20 km/h"
+      },
+      "flagImageUrl": "https://flagcdn.com/ru.svg"
+    },
+    {
+      "id": 9,
+      "name": "south Korea",
+      "weather": {
+        "temperature": "26°C",
+        "conditions": "Clear sky",
+        "humidity": "50%",
+        "windSpeed": "12 km/h"
+      },
+      "flagImageUrl": "https://flagcdn.com/kr.svg"
+    }
+  ]
+}

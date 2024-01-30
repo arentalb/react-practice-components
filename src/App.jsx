@@ -1,8 +1,32 @@
-import { WeatherCard } from "./components/WeatherCard.jsx";
 import { Button } from "./components/Button.jsx";
 import { Input } from "./components/Input.jsx";
+import { useEffect, useState } from "react";
+import { WeatherCard } from "./components/WeatherCard.jsx";
+import { MutatingDots } from "react-loader-spinner";
+
+const baseUrl = "http://localhost:3000/countries";
 
 function App() {
+  const [countryData, setCountryData] = useState(undefined);
+
+  async function getRandomWeather() {
+    const randomNumber = Math.floor(Math.random() * 11);
+    const res = await fetch(`${baseUrl}/${randomNumber}`);
+    const data = await res.json();
+    setCountryData(data);
+  }
+
+  async function getWeatherByName(name) {
+    const res = await fetch(`${baseUrl}?name=${name}`);
+    const data = await res.json();
+    if (data[0] === undefined) setCountryData(undefined);
+    setCountryData(data[0]);
+  }
+
+  useEffect(function () {
+    getRandomWeather();
+  }, []);
+
   return (
     <div
       className={
@@ -11,10 +35,32 @@ function App() {
     >
       <div className={"  flex flex-col gap-4"}>
         <div className={"p-4 border-2 border-amber-300 rounded-2xl flex gap-4"}>
-          <Input />
-          <Button />
+          <Input onInter={getWeatherByName} />
+          <Button onRandom={getRandomWeather} />
         </div>
-        <WeatherCard />
+        <div
+          className={
+            "p-4 border-2 border-amber-300 rounded-2xl flex flex-col  "
+          }
+        >
+          {countryData === undefined ? (
+            <div className={"self-center"}>
+              <MutatingDots
+                visible={true}
+                height="100"
+                width="100"
+                color="#fff"
+                secondaryColor="#fcd34d"
+                radius="12.5"
+                ariaLabel="mutating-dots-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+              />
+            </div>
+          ) : (
+            <WeatherCard countryData={countryData} key={countryData.id} />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
-export function Input() {
+export function Input({ onInter }) {
   return (
     <>
       <input
+        onChange={(e) => onInter(e.target.value)}
         placeholder={"Iraq"}
         type="text"
         className={
