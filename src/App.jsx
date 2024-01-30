@@ -1,5 +1,12 @@
+import { Login } from "./Login.jsx";
+
 function App() {
-  return <p>hello world </p>;
+  return (
+    <div>
+      <h1>In App component </h1>
+      <Login />
+    </div>
+  );
 }
 
 export default App;
