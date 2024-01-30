@@ -1,5 +1,5 @@
 function App() {
-  return <p>hello world </p>;
+  return <p className={"text-4xl"}>hello world </p>;
 }
 
 export default App;
