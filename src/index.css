@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.conic-gradient-container {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to bottom, #87ceeb, #1c2541);
+
+}
