@@ -1,23 +1,15 @@
-import { useState } from "react";
-
-export function FlashCard({ flashcard }) {
-  const [isQuetionShowen, setIsQuetionShowen] = useState();
-
-  function handelToggle() {
-    setIsQuetionShowen(!isQuetionShowen);
-  }
-
+export function FlashCard({ flashcard, handelToggle, showenIndex }) {
   return (
     <div
-      onClick={handelToggle}
+      onClick={() => handelToggle(flashcard.id)}
       className={`${
-        isQuetionShowen ? "bg-red-300 " : "bg-blue-300 "
+        showenIndex === flashcard.id ? "bg-red-300 " : " bg-blue-300 "
       } px-12 py-16 w-80 rounded-3xl text-center`}
     >
-      {isQuetionShowen ? (
-        <p>{flashcard.question}</p>
-      ) : (
+      {showenIndex === flashcard.id ? (
         <p>{flashcard.answer}</p>
+      ) : (
+        <p>{flashcard.question}</p>
       )}
     </div>
   );
