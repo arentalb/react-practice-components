@@ -1,0 +1,19 @@
+.conatiner {
+    margin-top: 50vh;
+    display: flex;
+    align-items: center;
+}
+
+.btns {
+    display: flex;
+    margin: auto;
+    gap: 10px;
+}
+
+.btns button {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    background-color: #333;
+    color: #fff;
+}
