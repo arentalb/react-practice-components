@@ -1,0 +1,67 @@
+
+.mainBackground {
+    background: linear-gradient(99deg, #380036, #0cbaba);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    -o-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 54%
+    }
+    50% {
+        background-position: 100% 47%
+    }
+    100% {
+        background-position: 0% 54%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 54%
+    }
+    50% {
+        background-position: 100% 47%
+    }
+    100% {
+        background-position: 0% 54%
+    }
+}
+
+@-o-keyframes AnimationName {
+    0% {
+        background-position: 0% 54%
+    }
+    50% {
+        background-position: 100% 47%
+    }
+    100% {
+        background-position: 0% 54%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 54%
+    }
+    50% {
+        background-position: 100% 47%
+    }
+    100% {
+        background-position: 0% 54%
+    }
+}
+
+.glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+
+}
