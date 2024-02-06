@@ -3,8 +3,8 @@ import { TransactionList } from "@/components/transactions/TransactionList.jsx";
 
 export function TransactionComponent() {
   return (
-    <div className={" flex justify-center  flex-col items-center"}>
-      <div className={"flex justify-around w-full mb-8 "}>
+    <div className={" flex justify-center  flex-col items-center "}>
+      <div className={"flex justify-around w-full mb-10"}>
         <TransactionSummery />
         <TransactionSummery />
       </div>

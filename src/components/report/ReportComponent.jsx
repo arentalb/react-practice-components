@@ -4,12 +4,12 @@ import { ReportList } from "@/components/report/ReportList.jsx";
 
 export function ReportComponent() {
   return (
-    <>
+    <div className={" flex justify-center  flex-col items-center "}>
       <div className={"h-60 flex justify-center mb-8"}>
         <ReportChart />
       </div>
       <div>
-        <div className={"flex justify-center gap-4 mb-8"}>
+        <div className={"flex justify-center gap-4 "}>
           <Button className={"w-24"}>income</Button>
           <Button className={"w-24"}>expense</Button>
         </div>
@@ -17,6 +17,6 @@ export function ReportComponent() {
           <ReportList />
         </div>
       </div>
-    </>
+    </div>
   );
 }

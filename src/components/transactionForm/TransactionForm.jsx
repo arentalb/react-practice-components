@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input.jsx";
 
 export function TransactionForm() {
   return (
-    <div className={" flex  h-full flex-col p-10"}>
+    <div className={" flex justify-center  flex-col items-center"}>
       <h1 className={"text-center text-4xl mb-20"}>Add new transaction </h1>
       <div className={"mb-10 flex w-full justify-start "}>
         <Input />
