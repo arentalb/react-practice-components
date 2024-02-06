@@ -1,4 +1,5 @@
 import styles from "../App.module.css";
+import { Button } from "@/components/ui/button.jsx";
 
 export function Menu() {
   return (
@@ -10,10 +11,16 @@ export function Menu() {
         alt="Description"
         className={"w-24 mb-10"}
       />
-      <ul>
-        <li>transactions</li>
-        <li>report</li>
-        <li>Add</li>
+      <ul className={"flex flex-col gap-4 items-center w-20"}>
+        <li>
+          <Button className={"w-32"}>Transactions</Button>
+        </li>
+        <li>
+          <Button className={"w-32"}>Report</Button>
+        </li>
+        <li>
+          <Button className={"w-32"}>Add</Button>
+        </li>
       </ul>
     </nav>
   );
