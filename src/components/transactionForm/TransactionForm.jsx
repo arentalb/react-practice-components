@@ -19,9 +19,22 @@ export function TransactionForm({ setTransactions }) {
   const [type, setType] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState(0);
+  const [selectData, setSelectData] = useState(selectorData2);
 
   function handelTypeChange(e) {
-    console.log(e);
+    if (e === "expense") {
+      setSelectData({
+        ...selectData,
+        items: ["home", "course", "car ", "hospital"],
+      });
+    }
+    if (e === "income") {
+      setSelectData({
+        ...selectData,
+        items: ["salary1", "salary2", "founded", "still"],
+      });
+    }
+
     setType(e);
   }
 
@@ -54,7 +67,7 @@ export function TransactionForm({ setTransactions }) {
       </div>
       <div className={"flex justify-between  w-full mb-8 "}>
         <Selector data={selectorData1} onValueChange={handelTypeChange} />
-        <Selector data={selectorData2} onValueChange={handelCategoryChange} />
+        <Selector data={selectData} onValueChange={handelCategoryChange} />
       </div>
 
       <div className={"flex justify-center"}>
