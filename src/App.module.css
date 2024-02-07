@@ -1,12 +1,16 @@
 .mainBackground {
-    background-color: darkcyan;
     /*background: linear-gradient(99deg, #380036, #0cbaba);*/
     /*background-size: 400% 400%;*/
-
     /*-webkit-animation: AnimationName 30s ease infinite;*/
     /*-moz-animation: AnimationName 30s ease infinite;*/
     /*-o-animation: AnimationName 30s ease infinite;*/
     /*animation: AnimationName 30s ease infinite;*/
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("https://images.unsplash.com/photo-1568581357391-c71a1675ef93?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
 }
 
 /*@-webkit-keyframes AnimationName {*/
@@ -58,9 +62,9 @@
 /*}*/
 
 .glass {
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(5px) saturate(148%);
+    -webkit-backdrop-filter: blur(4px) saturate(148%);
+    background-color: rgba(255, 255, 255, 0.65);
     border-radius: 12px;
     border: 1px solid rgba(209, 213, 219, 0.3);
 
