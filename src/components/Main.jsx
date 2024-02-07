@@ -9,7 +9,9 @@ export function Main({ activeTab }) {
 
   return (
     <main className={`${styles.glass}  col-span-2 glass rounded-lg p-4`}>
-      {activeTab === "Transactions" && <TransactionComponent />}
+      {activeTab === "Transactions" && (
+        <TransactionComponent transactions={transactions} />
+      )}
       {activeTab === "Report" && <ReportComponent />}
       {activeTab === "Form" && (
         <TransactionForm setTransactions={setTransactions} />
