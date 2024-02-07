@@ -3,21 +3,30 @@ import { Pie } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const data = {
-  labels: ["1", "2", "3"],
-  datasets: [
-    {
-      data: [300, 50, 100],
-      backgroundColor: [
-        "rgb(255, 99, 132)",
-        "rgb(54, 162, 235)",
-        "rgb(255, 205, 86)",
-      ],
-      hoverOffset: 4,
-    },
-  ],
-};
+//[0:{category: "home", totalAmount: 20}
+// ,1:{category: "cataloge", totalAmount: 40}]
+export function ReportChart({ reportList }) {
+  const categories = reportList.map((item) => item.category);
+  const totalAmounts = reportList.map((item) => item.totalAmount);
 
-export function ReportChart() {
+  const data = {
+    labels: categories,
+    datasets: [
+      {
+        data: totalAmounts,
+        backgroundColor: [
+          "rgb(0, 123, 255)",
+          "rgb(255, 193, 7)",
+          "rgb(40, 167, 69)",
+          "rgba(255, 99, 132, 0.8)",
+          "rgb(153, 102, 255)",
+          "rgb(0, 0, 0)",
+          "rgb(255, 64, 129)",
+          "rgb(240, 240, 240)",
+        ],
+        hoverOffset: 4,
+      },
+    ],
+  };
   return <Pie data={data} />;
 }

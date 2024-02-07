@@ -1,13 +1,15 @@
 import { Progress } from "@/components/ui/progress.jsx";
 
-export function Report() {
+export function Report({ report, total }) {
+  const percentage = (report.totalAmount / total) * 100;
+  console.log(percentage);
   return (
     <div className={"mb-4"}>
       <div className={"flex justify-between mb-1 text-xs"}>
-        <p> gatgory name </p>
-        <p>400000</p>
+        <p> {report.category} </p>
+        <p>{percentage.toFixed()}%</p>
       </div>
-      <Progress value={33} />
+      <Progress value={percentage} />
     </div>
   );
 }

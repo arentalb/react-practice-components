@@ -12,7 +12,9 @@ export function Main({ activeTab }) {
       {activeTab === "Transactions" && (
         <TransactionComponent transactions={transactions} />
       )}
-      {activeTab === "Report" && <ReportComponent />}
+      {activeTab === "Report" && (
+        <ReportComponent transactions={transactions} />
+      )}
       {activeTab === "Form" && (
         <TransactionForm setTransactions={setTransactions} />
       )}
