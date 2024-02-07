@@ -11,7 +11,14 @@ const selectorData1 = {
 
 const selectorData2 = {
   label: "category",
-  items: ["home", "course", "car ", "hospital"],
+  items: [
+    "Groceries",
+    "Utilities",
+    "Dining out",
+    "Healthcare",
+    "Transportation",
+    "Rent",
+  ],
   message: "select a category",
 };
 
@@ -25,13 +32,26 @@ export function TransactionForm({ setTransactions }) {
     if (e === "expense") {
       setSelectData({
         ...selectData,
-        items: ["home", "course", "car ", "hospital"],
+        items: [
+          "Groceries",
+          "Utilities",
+          "Dining out",
+          "Healthcare",
+          "Transportation",
+          "Rent",
+        ],
       });
     }
     if (e === "income") {
       setSelectData({
         ...selectData,
-        items: ["salary1", "salary2", "founded", "still"],
+        items: [
+          "Freelance",
+          "Bonus",
+          "Salary",
+          "Rental income",
+          "Renting equipment",
+        ],
       });
     }
 

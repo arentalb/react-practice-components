@@ -28,5 +28,12 @@ export function ReportChart({ reportList }) {
       },
     ],
   };
-  return <Pie data={data} />;
+  const chartOptions = {
+    maintainAspectRatio: false,
+    responsive: true,
+    width: 800,
+    height: 800,
+  };
+
+  return <Pie data={data} options={chartOptions} />;
 }
