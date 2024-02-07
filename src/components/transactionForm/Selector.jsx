@@ -8,20 +8,20 @@ import {
   SelectValue,
 } from "@/components/ui/select.jsx";
 
-export function Selector() {
+export function Selector({ data, onValueChange }) {
   return (
-    <Select>
+    <Select onValueChange={onValueChange}>
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select a fruit" />
+        <SelectValue placeholder={data.message} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="blueberry">Blueberry</SelectItem>
-          <SelectItem value="grapes">Grapes</SelectItem>
-          <SelectItem value="pineapple">Pineapple</SelectItem>
+          <SelectLabel>{data.label}</SelectLabel>
+          {data.items.map((item, index) => (
+            <SelectItem value={item} key={data.items[index]}>
+              {data.items[index]}
+            </SelectItem>
+          ))}
         </SelectGroup>
       </SelectContent>
     </Select>

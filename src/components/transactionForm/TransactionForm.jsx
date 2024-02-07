@@ -1,21 +1,64 @@
 import { Selector } from "@/components/transactionForm/Selector.jsx";
 import { Button } from "@/components/ui/button.jsx";
 import { Input } from "@/components/ui/input.jsx";
+import { useState } from "react";
 
-export function TransactionForm() {
+const selectorData1 = {
+  label: "types",
+  items: ["income", "expense"],
+  message: "select a type",
+};
+
+const selectorData2 = {
+  label: "category",
+  items: ["home", "course", "car ", "hospital"],
+  message: "select a category",
+};
+
+export function TransactionForm({ setTransactions }) {
+  const [type, setType] = useState("");
+  const [category, setCategory] = useState("");
+  const [amount, setAmount] = useState(0);
+
+  function handelTypeChange(e) {
+    console.log(e);
+    setType(e);
+  }
+
+  function handelCategoryChange(e) {
+    console.log(e);
+    setCategory(e);
+  }
+
+  function handelAmountChange(e) {
+    console.log(e.target.value);
+    setAmount(e.target.value);
+  }
+
+  function handleClick() {
+    if (type === "" || category === "" || amount === 0) return;
+    const newTransaction = {
+      id: crypto.randomUUID(),
+      type,
+      category,
+      amount,
+    };
+    setTransactions((preTarnsactions) => [...preTarnsactions, newTransaction]);
+  }
+
   return (
     <div className={" flex justify-center  flex-col items-center"}>
       <h1 className={"text-center text-4xl mb-20"}>Add new transaction </h1>
       <div className={"mb-10 flex w-full justify-start "}>
-        <Input />
+        <Input type={"number"} onChange={handelAmountChange} />
       </div>
       <div className={"flex justify-between  w-full mb-8 "}>
-        <Selector />
-        <Selector />
+        <Selector data={selectorData1} onValueChange={handelTypeChange} />
+        <Selector data={selectorData2} onValueChange={handelCategoryChange} />
       </div>
 
       <div className={"flex justify-center"}>
-        <Button>add new transaction </Button>
+        <Button onClick={handleClick}>add new transaction </Button>
       </div>
     </div>
   );
