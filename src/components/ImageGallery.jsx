@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import { ImageCard } from "./ImageCard.jsx";
 
-export function ImageGallery() {
+export function ImageGallery({ url }) {
   const [gallery, setGallery] = useState([]);
 
   useEffect(
     function () {
       async function fetImage1() {
-        const res = await fetch(
-          `https://pixabay.com/api/?key=42295673-0684264417cf6981b5cb585df&per_page=200`,
-        );
+        const res = await fetch(url);
         const data = await res.json();
         setGallery(splitArrayIntoThree(data.hits, 3));
       }

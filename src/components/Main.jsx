@@ -1,9 +1,9 @@
 import { ImageGallery } from "./ImageGallery.jsx";
 
-export function Main() {
+export function Main({ url }) {
   return (
     <div className={"mx-auto max-w-[1200px]"}>
-      <ImageGallery />
+      <ImageGallery url={url} />
     </div>
   );
 }
