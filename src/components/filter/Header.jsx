@@ -1,4 +1,5 @@
 import { Search } from "./Search.jsx";
+import { ColorFilter } from "./ColorFilter.jsx";
 
 export function Header({ onParamChange }) {
   return (
@@ -6,7 +7,10 @@ export function Header({ onParamChange }) {
       <h1 className={"text-5xl text-white my-10"}>
         Showcasing Our Creative Vision
       </h1>
-      <Search onParamChange={onParamChange} />
+      <div className={"flex gap-8 justify-between"}>
+        <Search onParamChange={onParamChange} />
+        <ColorFilter onParamChange={onParamChange} />
+      </div>
     </div>
   );
 }

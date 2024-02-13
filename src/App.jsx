@@ -1,6 +1,6 @@
-import { Header } from "./components/Header.jsx";
-import { Main } from "./components/Main.jsx";
+import { Header } from "./components/filter/Header.jsx";
 import { useEffect, useState } from "react";
+import { Main } from "./components/Main.jsx";
 
 function App() {
   const [gallery, setGallery] = useState([]);
