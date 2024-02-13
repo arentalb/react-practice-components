@@ -1,9 +1,10 @@
 import { Header } from "./components/filter/Header.jsx";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Main } from "./components/Main.jsx";
 
 function App() {
   const [gallery, setGallery] = useState([]);
+  const pageNumber = useRef(1);
 
   const [searchParams, setSearchParams] = useState({
     key: import.meta.env.VITE_API_KEY,
@@ -29,13 +30,32 @@ function App() {
     setSearchParams((prevParams) => ({ ...prevParams, ...updatedParams }));
   };
 
+  function loadMore() {
+    pageNumber.current += 1;
+
+    //we can not get image if teh page is greater than 11
+
+    async function getImages() {
+      const res = await fetch(
+        generateApiUrl({ ...searchParams, page: pageNumber.current }),
+      );
+      const data = await res.json();
+
+      setGallery(() => [...gallery, ...data.hits]);
+    }
+
+    getImages();
+  }
+
   useEffect(
     function () {
       async function getImages() {
         const res = await fetch(generateApiUrl(searchParams));
         const data = await res.json();
-        setGallery(data);
+        setGallery(data.hits);
       }
+
+      pageNumber.current = 1;
 
       getImages();
     },
@@ -45,11 +65,12 @@ function App() {
   return (
     <div
       className={
-        " min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+        " min-h-screen "
+        // bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
       }
     >
       <Header onParamChange={handleSearchParamsChange} />
-      <Main gallery={gallery.hits} />
+      <Main gallery={gallery} loadMore={loadMore} />
     </div>
   );
 }

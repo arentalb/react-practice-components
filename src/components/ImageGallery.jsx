@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ImageCard } from "./ImageCard.jsx";
 
-export function ImageGallery({ gallery }) {
+export function ImageGallery({ gallery, loadMore }) {
   const [splitGallery, setSplitGallery] = useState([]);
   const [selectedCard, setSelectedCard] = useState("");
 
@@ -16,20 +16,35 @@ export function ImageGallery({ gallery }) {
     [gallery],
   );
   return (
-    <div className={"flex gap-4"}>
-      {splitGallery.map((arrayImage, index) => (
-        <div className={"flex flex-col max-w-96 gap-4"} key={index}>
-          {arrayImage.map((item) => (
-            <ImageCard
-              item={item}
-              key={item.id}
-              setSelectedCard={setSelectedCard}
-              selectedCard={selectedCard}
-            />
-          ))}
+    <>
+      <div className={"flex gap-4 relative"}>
+        {splitGallery.map((arrayImage, index) => (
+          <div className={"flex flex-col max-w-96 gap-4"} key={index}>
+            {arrayImage.map((item) => (
+              <ImageCard
+                item={item}
+                key={item.id}
+                setSelectedCard={setSelectedCard}
+                selectedCard={selectedCard}
+              />
+            ))}
+          </div>
+        ))}
+        <div
+          className={
+            " absolute w-full flex justify-center items-center bottom-0  h-96 " +
+            "bg-gradient-to-b from-transparent to-gray-50  "
+          }
+        >
+          <button
+            onClick={loadMore}
+            className={"hover:bg-gray-50  bg-white px-4 py-2 z-10 rounded-md"}
+          >
+            Load More
+          </button>
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 }
 
