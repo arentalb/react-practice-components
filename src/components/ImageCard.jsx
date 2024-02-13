@@ -15,7 +15,7 @@ export function ImageCard({ item, setSelectedCard, selectedCard }) {
         }}
         src={item?.webformatURL}
         alt=""
-        className={"w-full object-cover rounded-lg"}
+        className={"w-full object-cover rounded-md"}
       />
 
       {selectedCard === item.id ? (

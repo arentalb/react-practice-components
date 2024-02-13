@@ -4,6 +4,10 @@ const colors = {
   red: "bg-red-500",
   green: "bg-green-500",
   yellow: "bg-yellow-500",
+  blue: "bg-blue-500",
+  pink: "bg-pink-500",
+  orange: "bg-orange-500",
+  gray: "bg-gray-500",
 };
 
 export function ColorFilter({ onParamChange }) {
@@ -25,16 +29,17 @@ export function ColorFilter({ onParamChange }) {
       key={color}
       onClick={() => handleColorChange(color)}
       value={color}
-      className={`p-3 rounded-full ${colors[color]}`}
+      className={`p-4 rounded-full ${colors[color]}`}
     ></button>
   );
 
   return (
-    <div className="relative">
+    <div className="relative text-gray-600">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex justify-between items-center w-32 bg-blue-500 text-white rounded-lg px-4 py-2"
+        className="flex justify-between border items-center gap-6  text-gray-600 rounded-full px-4 py-2 hover:bg-gray-100"
       >
+        <p className="text-lg">color</p>
         <div
           className={`${
             selectedColor === ""
@@ -42,10 +47,9 @@ export function ColorFilter({ onParamChange }) {
               : colors[selectedColor]
           } p-3 border-2 border-white rounded-full`}
         ></div>
-        <p className="text-2xl">&#8595;</p>
       </button>
       {isOpen && (
-        <div className="absolute flex flex-wrap gap-4 bg-white px-2 items-center justify-end py-4 right-0 rounded-lg top-16 z-10">
+        <div className="absolute  flex flex-wrap gap-4 bg-white px-2 items-center justify-end py-4  rounded-lg border-2  z-10 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
           {Object.keys(colors).map((color) => renderColorButton(color))}
         </div>
       )}
