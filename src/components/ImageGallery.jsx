@@ -3,6 +3,7 @@ import { ImageCard } from "./ImageCard.jsx";
 
 export function ImageGallery({ gallery }) {
   const [splitGallery, setSplitGallery] = useState([]);
+  const [selectedCard, setSelectedCard] = useState("");
 
   useEffect(
     function () {
@@ -19,7 +20,12 @@ export function ImageGallery({ gallery }) {
       {splitGallery.map((arrayImage, index) => (
         <div className={"flex flex-col max-w-96 gap-4"} key={index}>
           {arrayImage.map((item) => (
-            <ImageCard item={item} key={item.id} />
+            <ImageCard
+              item={item}
+              key={item.id}
+              setSelectedCard={setSelectedCard}
+              selectedCard={selectedCard}
+            />
           ))}
         </div>
       ))}
