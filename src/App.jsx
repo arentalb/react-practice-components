@@ -1,18 +1,29 @@
-import { useState } from "react";
+import { useReducer } from "react";
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "dec":
+      return state - 1;
+    case "inc":
+      return state + 1;
+    case "setFixedValue":
+      return action.payload;
+  }
+}
 
 function App() {
-  const [value, setValue] = useState(0);
+  const [value, dispatch] = useReducer(reducer, 0);
 
   function dec() {
-    setValue((preValue) => preValue - 1);
+    dispatch({ type: "dec" });
   }
 
   function inc() {
-    setValue((preValue) => preValue + 1);
+    dispatch({ type: "inc" });
   }
 
   function setFixedValue(e) {
-    setValue(Number(e.target.value));
+    dispatch({ type: "setFixedValue", payload: Number(e.target.value) });
   }
 
   return (
