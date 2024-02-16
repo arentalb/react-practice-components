@@ -1,5 +1,11 @@
+import { TikTak } from "./TikTak.jsx";
+
 function App() {
-  return <p>hello world </p>;
+  return (
+    <div className={"flex justify-center items-center h-screen"}>
+      <TikTak />
+    </div>
+  );
 }
 
 export default App;
