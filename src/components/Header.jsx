@@ -1,12 +1,10 @@
+import { Search } from "./Search.jsx";
+
 export function Header() {
   return (
     <div className={"p-6 "}>
       <div className={"flex justify-between items-center"}>
-        <input
-          type="text"
-          className={"px-3 py-2 bg-gray-100  rounded-md border"}
-          placeholder={"Enter shoe name..."}
-        />
+        <Search />
         <div className={"flex gap-4"}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
