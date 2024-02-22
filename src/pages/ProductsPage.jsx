@@ -1,6 +1,8 @@
 import { Filter } from "../components/Filter.jsx";
 import { Header } from "../components/Header.jsx";
 import { Logo } from "../components/Logo.jsx";
+import { Recommendation } from "../components/Recommendation.jsx";
+import { ProductList } from "../components/ProductList.jsx";
 
 export function ProductsPage() {
   return (
@@ -18,11 +20,14 @@ export function ProductsPage() {
           <Header />
         </div>
 
-        <div className={"col-span-1 border-r-2"}>
+        <div className={"col-span-1  border-r-2"}>
           <Filter />
         </div>
 
-        <div className={"col-span-7 h-full bg-amber-300"}>content</div>
+        <div className={"col-span-7 min-h-[600px] flex flex-col p-8"}>
+          <Recommendation />
+          <ProductList />
+        </div>
       </div>
     </div>
   );
