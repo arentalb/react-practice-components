@@ -1,3 +1,5 @@
+import { Checkout } from "./Checkout.jsx";
+
 export function CartDetail() {
   return (
     <div className={" flex gap-2"}>
@@ -17,10 +19,10 @@ export function CartDetail() {
       </div>
       <div
         className={
-          "w-1/2 flex flex-wrap gap-10 border-2 shadow-lg p-4 rounded-md"
+          "w-1/2 flex flex-wrap gap-10 border-2 shadow-lg p-4 rounded-md justify-center"
         }
       >
-        checkout
+        <Checkout />
       </div>
     </div>
   );
