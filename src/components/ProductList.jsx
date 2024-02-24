@@ -1,4 +1,5 @@
 import { useShoe } from "../contexts/ShoeProvider.jsx";
+import { useNavigate } from "react-router";
 
 export function ProductList() {
   const { shoes, loading } = useShoe();
@@ -19,7 +20,8 @@ export function ProductList() {
 }
 
 function Product({ shoe }) {
-  console.log(shoe);
+  const navigate = useNavigate();
+
   return (
     <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 mb-4 p-4">
       <div className="h-48">
@@ -37,7 +39,10 @@ function Product({ shoe }) {
             <span className="line-through text-gray-500">{shoe.prevPrice}</span>{" "}
             ${shoe.newPrice}
           </p>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-full">
+          <button
+            onClick={() => navigate(`/product/${shoe.id}`)}
+            className="bg-blue-500 text-white px-4 py-2 rounded-full"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

@@ -8,16 +8,16 @@ import { ShoeProvider } from "./contexts/ShoeProvider.jsx";
 function App() {
   return (
     <div>
-      <ShoeProvider>
-        <BrowserRouter>
+      <BrowserRouter>
+        <ShoeProvider>
           <Routes>
             <Route index element={<Navigate to={"products"} />} />
             <Route path={"/products"} element={<ProductsPage />} />
-            <Route path={"/product"} element={<ProductPage />} />
+            <Route path={"/product/:id"} element={<ProductPage />} />
             <Route path={"/cart"} element={<CartPage />} />
           </Routes>
-        </BrowserRouter>
-      </ShoeProvider>
+        </ShoeProvider>
+      </BrowserRouter>
     </div>
   );
 }
