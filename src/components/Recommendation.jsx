@@ -1,6 +1,6 @@
 export function Recommendation() {
   return (
-    <div className={"mb-8"}>
+    <div className={""}>
       <h2 className={"text-2xl mb-4"}>Recomendation</h2>
       <div className={"flex gap-4"}>
         <Recommend text={"popular"} />

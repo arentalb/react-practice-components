@@ -1,29 +1,17 @@
 import { ProductDetail } from "../components/ProductDetail.jsx";
 import { Logo } from "../components/Logo.jsx";
 import { Header } from "../components/Header.jsx";
-import { Filter } from "../components/Filter.jsx";
 
 export function ProductPage() {
   return (
-    <div className={"grid grid-cols-8  "}>
-      <div
-        className={
-          "col-span-1 flex justify-center items-center text-2xl border-b-2 border-r-2"
-        }
-      >
+    <div className={" "}>
+      <div className={"flex justify-between px-10 border-b-2"}>
         <Logo />
-      </div>
-
-      <div className={"col-span-7 border-b-2"}>
         <Header />
       </div>
 
-      <div className={"col-span-1  border-r-2"}>
-        <Filter />
-      </div>
-
-      <div className={"col-span-7 min-h-[600px] flex flex-col p-8"}>
-        <div>
+      <div className={"flex p-8 flex-col sm:flex-row"}>
+        <div className={"w-full flex flex-col gap-6 "}>
           <ProductDetail />
         </div>
       </div>

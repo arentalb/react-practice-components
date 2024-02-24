@@ -2,12 +2,9 @@ import { Checkout } from "./Checkout.jsx";
 
 export function CartDetail() {
   return (
-    <div className={" flex gap-2"}>
-      <div
-        className={
-          "w-1/2 flex flex-wrap gap-10 border-2 shadow-lg p-4 rounded-md"
-        }
-      >
+    <div className="flex gap-6">
+      {/* Cart Items Section */}
+      <div className="w-2/3 flex flex-wrap gap-6 border-2 shadow-lg p-4 rounded-md">
         <CartItem />
         <CartItem />
         <CartItem />
@@ -17,11 +14,9 @@ export function CartDetail() {
         <CartItem />
         <CartItem />
       </div>
-      <div
-        className={
-          "w-1/2 flex flex-wrap gap-10 border-2 shadow-lg p-4 rounded-md justify-center"
-        }
-      >
+
+      {/* Checkout Section */}
+      <div className="w-1/3 flex flex-col gap-6 border-2 shadow-lg p-4 rounded-md">
         <Checkout />
       </div>
     </div>
@@ -30,18 +25,19 @@ export function CartDetail() {
 
 function CartItem() {
   return (
-    <div className={"flex border-2  rounded-md shadow-lg p-4 w-full "}>
-      <div className={"w-40 "}>
+    <div className="flex border-2 rounded-md shadow-lg p-4 w-full">
+      {/* Product Image */}
+      <div className="w-1/6">
         <img
-          className={"rounded-md"}
-          srcSet={""}
+          className="rounded-md w-full"
           src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D"
           alt=""
         />
       </div>
 
-      <div className={"flex flex-col justify-between ml-4"}>
-        <h2 className={" font-bold "}>the name of teh shose</h2>
+      {/* Product Details */}
+      <div className="flex flex-col justify-between ml-4">
+        <h2 className="font-bold">The Name of the Shoe</h2>
         <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"

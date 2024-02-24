@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export function Filter() {
   return (
-    <div className={"flex flex-col p-8 gap-6 "}>
+    <div className={" flex flex-wrap gap-10 mb-10  justify-between  sm:block"}>
       <CategoriesFilter />
       <PricesFilter />
       <ColorsFilter />

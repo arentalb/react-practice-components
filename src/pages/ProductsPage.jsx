@@ -6,25 +6,17 @@ import { Filter } from "../components/Filter.jsx";
 
 export function ProductsPage() {
   return (
-    <div className={"grid grid-cols-8  "}>
-      <div
-        className={
-          "col-span-1 flex justify-center items-center text-2xl border-b-2 border-r-2"
-        }
-      >
+    <div className="">
+      <div className={"flex justify-between px-10 border-b-2"}>
         <Logo />
-      </div>
-
-      <div className={"col-span-7 border-b-2"}>
         <Header />
       </div>
 
-      <div className={"col-span-1  border-r-2"}>
-        <Filter />
-      </div>
-
-      <div className={"col-span-7 min-h-[600px] flex flex-col p-8"}>
-        <div>
+      <div className={"flex p-8 flex-col sm:flex-row"}>
+        <div className={"min-w-36 sm:border-r-2"}>
+          <Filter />
+        </div>
+        <div className={"w-full flex flex-col gap-6 pl-4"}>
           <Recommendation />
           <ProductList />
         </div>

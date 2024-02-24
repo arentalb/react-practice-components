@@ -4,7 +4,9 @@ export function Header() {
   return (
     <div className={"p-6 "}>
       <div className={"flex justify-between items-center"}>
-        <Search />
+        <div className={"px-10"}>
+          <Search />
+        </div>
         <div className={"flex gap-4"}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
