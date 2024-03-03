@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import { useShoe } from "../contexts/ShoeProvider.jsx";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import { useCart } from "../contexts/CartProvider.jsx";
 
 export function ProductDetail() {
   const { getShoeById, selectedShoe } = useShoe();
   const par = useParams();
+  const navigate = useNavigate();
+  const { addCartItem, getCartItems, deleteCartItem } = useCart();
 
   useEffect(function () {
     getShoeById(par.id);
@@ -44,7 +47,13 @@ export function ProductDetail() {
         </p>
 
         <div className="mt-auto flex gap-4">
-          <button className="px-4 py-2 bg-amber-400 rounded-md hover:bg-amber-500">
+          <button
+            onClick={() => {
+              addCartItem(selectedShoe);
+              navigate("/products");
+            }}
+            className="px-4 py-2 bg-amber-400 rounded-md hover:bg-amber-500"
+          >
             Add to Cart
           </button>
           <button className="px-4 py-2 bg-amber-400 rounded-md hover:bg-amber-500">
