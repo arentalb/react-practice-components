@@ -21,7 +21,7 @@ function CartProvider({ children }) {
   function deleteCartItem(id) {
     setCartItems(
       cartItems.filter((item) => {
-        return item.id === id;
+        return item.id !== id;
       }),
     );
   }

@@ -1,6 +1,8 @@
 import { Search } from "./Search.jsx";
+import { useNavigate } from "react-router";
 
 export function Header() {
+  const navigate = useNavigate();
   return (
     <div className={"p-6 "}>
       <div className={"flex justify-between items-center"}>
@@ -24,6 +26,7 @@ export function Header() {
           </svg>
 
           <svg
+            onClick={() => navigate("/cart")}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

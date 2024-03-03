@@ -1,60 +1,105 @@
-import { Checkout } from "./Checkout.jsx";
+import { useCart } from "../contexts/CartProvider.jsx";
+import { useNavigate } from "react-router";
 
 export function CartDetail() {
-  return (
-    <div className="flex gap-6">
-      {/* Cart Items Section */}
-      <div className="w-2/3 flex flex-wrap gap-6 border-2 shadow-lg p-4 rounded-md">
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-      </div>
+  const { getCartItems, deleteCartItem } = useCart();
 
-      {/* Checkout Section */}
-      <div className="w-1/3 flex flex-col gap-6 border-2 shadow-lg p-4 rounded-md">
-        <Checkout />
+  const navigate = useNavigate();
+  const subTotal = getCartItems().reduce((acc, cuu) => {
+    return acc + Number(cuu.newPrice * cuu.quantity);
+  }, 0);
+  const delivery = 0;
+  const total = subTotal + delivery;
+
+  return (
+    <div>
+      <div className="flex flex-col min-h-screen ">
+        {getCartItems().length > 0 ? (
+          <>
+            <header className="flex items-center justify-between h-16 bg-white shadow-sm border-b-2">
+              <h1 className="text-xl font-medium px-4 ">My Shopping Cart</h1>
+            </header>
+            <main className="flex flex-col flex-grow p-4 overflow-y-auto">
+              <section className="flex items-center justify-between border-b border-gray-200 pb-4">
+                <h2 className="text-lg font-medium">Items</h2>
+              </section>
+
+              {getCartItems().map((item) => (
+                <CartItem
+                  item={item}
+                  key={item.id}
+                  deleteCartItem={deleteCartItem}
+                />
+              ))}
+
+              <section className="flex items-center justify-between border-b border-gray-200 py-4">
+                <h2 className="text-lg font-medium">Subtotal</h2>
+                <span className="text-gray-900 font-medium"> ${subTotal}</span>
+              </section>
+              <section className="flex items-center justify-between py-4">
+                <h2 className="text-lg font-medium">Delivery</h2>
+                <span className="text-gray-900 font-medium">
+                  {delivery === 0 ? "Free" : delivery}
+                </span>
+              </section>
+              <section className="flex items-center justify-between border-t border-gray-200 pt-4">
+                <h2 className="text-lg font-medium">Total</h2>
+                <span className="text-2xl font-semibold text-gray-900">
+                  ${total}
+                </span>
+              </section>
+            </main>
+            <footer className="flex items-center justify-center py-4 bg-white shadow-sm">
+              <button className="px-6 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none">
+                Checkout
+              </button>
+            </footer>
+          </>
+        ) : (
+          <div className={"text-center "}>
+            <h1 className={" text-4xl mb-4"}> No item in the cart </h1>
+            <button
+              onClick={() => navigate("/products")}
+              className={"px-4 py-2 rounded-md bg-amber-400"}
+            >
+              return to main
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-function CartItem() {
+function CartItem({ item, deleteCartItem }) {
+  const totalEach = item.newPrice * item.quantity;
   return (
-    <div className="flex border-2 rounded-md shadow-lg p-4 w-full">
-      {/* Product Image */}
-      <div className="w-1/6">
+    <article className="flex py-4 border-b border-gray-200">
+      <div className="flex-shrink-0 mr-4">
         <img
-          className="rounded-md w-full"
-          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8fDA%3D"
-          alt=""
+          className="w-24  min-h-10 rounded-sm"
+          src={item.img}
+          alt="Product image"
         />
       </div>
-
-      {/* Product Details */}
-      <div className="flex flex-col justify-between ml-4">
-        <h2 className="font-bold">The Name of the Shoe</h2>
-        <button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
+      <div className="flex flex-col">
+        <h3 className="text-base font-medium">{item.title}</h3>
+        <span className="text-gray-500 text-sm">${item.newPrice}</span>
+        <div className="flex items-center mt-4">
+          <span className="text-gray-500 text-sm mr-4">
+            Quantity: {item.quantity}
+          </span>
+          <button
+            onClick={() => {
+              deleteCartItem(item.id);
+            }}
+            className="text-gray-600 hover:text-gray-400 focus:outline-none"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
-            />
-          </svg>
-        </button>
+            Remove
+          </button>
+        </div>
       </div>
-    </div>
+      <span className="ml-auto text-gray-900 font-medium">${totalEach}</span>
+    </article>
   );
 }

@@ -35,8 +35,10 @@ function Product({ shoe }) {
         <h2 className="text-xl font-bold mb-2">{shoe.title}</h2>
         <p className="text-xs mb-2">⭐⭐⭐⭐⭐ {shoe.reviews}</p>
         <div className="flex justify-between items-center">
-          <p>
-            <span className="line-through text-gray-500">{shoe.prevPrice}</span>{" "}
+          <p className={"flex gap-2"}>
+            <span className="line-through text-gray-500 ">
+              ${shoe.prevPrice}
+            </span>
             ${shoe.newPrice}
           </p>
           <button
