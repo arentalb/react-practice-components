@@ -1,4 +1,3 @@
-import { Recommendation } from "../components/Recommendation.jsx";
 import { ProductList } from "../components/ProductList.jsx";
 import { Logo } from "../components/Logo.jsx";
 import { Header } from "../components/Header.jsx";
@@ -17,7 +16,7 @@ export function ProductsPage() {
           <Filter />
         </div>
         <div className={"w-full flex flex-col gap-6 pl-4"}>
-          <Recommendation />
+          {/*<Recommendation />*/}
           <ProductList />
         </div>
       </div>

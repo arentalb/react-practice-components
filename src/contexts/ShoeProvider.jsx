@@ -9,6 +9,25 @@ function ShoeProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [selectedShoe, setSelectedShoe] = useState({});
 
+  async function fetchData() {
+    setLoading(true);
+    try {
+      const res = await fetch(URL);
+      const data = await res.json();
+      setShoes(() => data);
+      return data;
+    } catch (error) {
+      console.error("Error fetching shoes:", error);
+      return error;
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(function () {
+    fetchData();
+  }, []);
+
   function getShoeById(shoeId) {
     async function fetchData() {
       setLoading(true);
@@ -26,22 +45,23 @@ function ShoeProvider({ children }) {
     fetchData();
   }
 
-  useEffect(function () {
-    async function fetchData() {
-      setLoading(true);
-      try {
-        const res = await fetch(URL);
-        const data = await res.json();
-        setShoes(data);
-      } catch (error) {
-        console.error("Error fetching shoes:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
+  async function filterShoes(priceRange, color, category) {
+    const data = await fetchData();
 
-    fetchData();
-  }, []);
+    const filtered = data.filter((shoe) => {
+      const withinPriceRange =
+        (!priceRange.min || shoe.newPrice >= priceRange.min) &&
+        (!priceRange.max || shoe.newPrice <= priceRange.max);
+
+      const hasColor = !color || shoe.color === color[0];
+
+      const hasShoeType = !category || shoe.category === category[0];
+
+      return hasColor && hasShoeType && withinPriceRange;
+    });
+
+    setShoes(() => filtered);
+  }
 
   return (
     <ShoeContext.Provider
@@ -50,6 +70,8 @@ function ShoeProvider({ children }) {
         loading,
         getShoeById,
         selectedShoe,
+        filterShoes,
+        setShoes,
       }}
     >
       {children}

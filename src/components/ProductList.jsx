@@ -10,9 +10,11 @@ export function ProductList() {
         <p>Loading...</p>
       ) : (
         <div className="flex flex-wrap justify-evenly gap-4">
-          {shoes.map((shoe) => (
-            <Product key={shoe.id} shoe={shoe} />
-          ))}
+          {shoes.length === 0 ? (
+            <p className={"text-4xl"}>No Product Founded For this Filter </p>
+          ) : (
+            shoes.map((shoe) => <Product key={shoe.id} shoe={shoe} />)
+          )}
         </div>
       )}
     </div>
